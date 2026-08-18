@@ -1,0 +1,61 @@
+GB100:
+
+# ==================== Engine Residency Measurement ====================
+perl lpe.pl --chip gb100 --Feature engResidency --args GR --bdf 09:00.0 -t 1000
+perl lpe.pl --chip gb100 --Feature engResidency --args NVDEC0 --bdf 09:00.0 -t 1000
+perl lpe.pl --chip gb100 --Feature engResidency --args NVDEC1 --bdf 09:00.0 -t 1000
+perl lpe.pl --chip gb100 --Feature engResidency --args NVJPG0 --bdf 09:00.0 -t 1000
+perl lpe.pl --chip gb100 --Feature engResidency --args CE0 --bdf 09:00.0 -t 1000
+perl lpe.pl --chip gb100 --Feature engResidency --args OFA0 --bdf 09:00.0 -t 1000
+perl lpe.pl --chip gb100 --Feature engResidency --args OFA0 CE0 --bdf 09:00.0 -t 1000
+
+perl lpe.pl --chip gb100 --Feature engResidency --args ELCG_GR ELCG_NVDEC ELCG_NVDEC1 ELCG_NVDEC2 ELCG_NVDEC3 ELCG_NVDEC5 ELCG_NVDEC6 ELCG_NVDEC7 ELCG_NVJPG0 ELCG_NVJPG1 ELCG_NVJPG2 ELCG_NVJPG3 ELCG_NVJPG4 ELCG_NVJPG5 ELCG_NVJPG6 ELCG_NVJPG7 ELCG_SEC ELCG_CE0 ELCG_CE1 ELCG_CE2 ELCG_CE3 ELCG_CE4 ELCG_CE5 ELCG_CE6 ELCG_CE7 ELCG_CE8 ELCG_CE9 ELCG_CE10 ELCG_CE11 ELCG_CE12 ELCG_CE13 ELCG_CE14 ELCG_CE15 ELCG_CE16 ELCG_CE17 ELCG_CE18 ELCG_CE19 ELCG_OFA0 ELCG_OFA1 SYS0 SYS0A SYS0B SYS0C SYS1A SYS1B SYS1C --bdf 09:00.0 -t 1000
+
+# ==================== NVLINK_BLCG_0 ====================
+perl lpe.pl --chip gb100 --Feature regControl --args NVLINK_BLCG_0 read
+perl lpe.pl --chip gb100 --Feature regControl --args NVLINK_BLCG_0 enable
+perl lpe.pl --chip gb100 --Feature regControl --args NVLINK_BLCG_0 disable
+
+# ==================== ELCG_GR ====================
+perl lpe.pl --chip gb100 --Feature regControl --args ELCG_GR read
+perl lpe.pl --chip gb100 --Feature regControl --args ELCG_GR enable
+perl lpe.pl --chip gb100 --Feature regControl --args ELCG_GR disable
+
+# ==================== ELCG_COPY_0 ====================
+perl lpe.pl --chip gb100 --Feature regControl --args ELCG_COPY_0 read
+perl lpe.pl --chip gb100 --Feature regControl --args ELCG_COPY_0 enable
+perl lpe.pl --chip gb100 --Feature regControl --args ELCG_COPY_0 disable
+
+# ==================== ELCG_COPY_1 ====================
+perl lpe.pl --chip gb100 --Feature regControl --args ELCG_COPY_1 read
+perl lpe.pl --chip gb100 --Feature regControl --args ELCG_COPY_1 enable
+perl lpe.pl --chip gb100 --Feature regControl --args ELCG_COPY_1 disable
+
+# ==================== Batch Operations ====================
+perl lpe.pl --chip gb100 --Feature regControl --args NVLINK_BLCG_0 enable ELCG_GR enable ELCG_COPY_0 enable ELCG_COPY_1 enable
+perl lpe.pl --chip gb100 --Feature regControl --args NVLINK_BLCG_0 read ELCG_GR read ELCG_COPY_0 read ELCG_COPY_1 read
+perl lpe.pl --chip gb100 --Feature regControl --args NVLINK_BLCG_0 disable ELCG_GR disable ELCG_COPY_0 disable ELCG_COPY_1 disable
+
+perl lpe.pl --chip gb100 --Feature regControl --args NVLINK_BLCG_0 read ELCG_GR read  NVLINK_BLCG_0 read ELCG_COPY_0 read  NVLINK_BLCG_0 read ELCG_COPY_1 read  NVLINK_BLCG_0 read ELCG_NVDEC_0 read  ELCG_GR read ELCG_COPY_0 read  ELCG_GR read ELCG_COPY_1 read  ELCG_GR read ELCG_NVDEC_0 read  ELCG_COPY_0 read ELCG_COPY_1 read  ELCG_COPY_0 read ELCG_NVDEC_0 read  ELCG_COPY_1 read ELCG_NVDEC_0 read
+perl lpe.pl --chip gb100 --Feature regControl --args ELCG_GR enable ELCG_COPY_0 enable ELCG_COPY_1 enable ELCG_NVDEC_0 enable  ELCG_GR enable ELCG_COPY_0 enable  ELCG_GR enable ELCG_COPY_1 enable  ELCG_GR enable ELCG_NVDEC_0 enable  ELCG_COPY_0 enable ELCG_COPY_1 enable  ELCG_COPY_0 enable ELCG_NVDEC_0 enable  ELCG_COPY_1 enable ELCG_NVDEC_0 enable
+perl lpe.pl --chip gb100 --Feature regControl --args NVLINK_BLCG_0 disable ELCG_GR disable  NVLINK_BLCG_0 disable ELCG_COPY_0 disable  NVLINK_BLCG_0 disable ELCG_COPY_1 disable  NVLINK_BLCG_0 disable ELCG_NVDEC_0 disable  ELCG_GR disable ELCG_COPY_0 disable  ELCG_GR disable ELCG_COPY_1 disable  ELCG_GR disable ELCG_NVDEC_0 disable  ELCG_COPY_0 disable ELCG_COPY_1 disable  ELCG_COPY_0 disable ELCG_NVDEC_0 disable  ELCG_COPY_1 disable ELCG_NVDEC_0 disable
+
+# ==================== Threshold Configuration ====================
+# List all thresholds
+perl lpe.pl --chip gb100 --Feature regThreshold --args list
+
+# Read threshold
+perl lpe.pl --chip gb100 --Feature regThreshold --args ELCG_GR read
+perl lpe.pl --chip gb100 --Feature regThreshold --args ELCG_COPY_0 read
+perl lpe.pl --chip gb100 --Feature regThreshold --args ELCG_COPY_1 read
+perl lpe.pl --chip gb100 --Feature regThreshold --args ELCG_OFA_0 read
+
+# Write threshold (MANT BEFORE AFTER)
+perl lpe.pl --chip gb100 --Feature regThreshold --args ELCG_GR write 5 10 8
+perl lpe.pl --chip gb100 --Feature regThreshold --args ELCG_COPY_0 write 5 10 8
+perl lpe.pl --chip gb100 --Feature regThreshold --args ELCG_COPY_1 write 5 10 8
+
+# Batch read thresholds
+perl lpe.pl --chip gb100 --Feature regThreshold --args read ELCG_GR ELCG_COPY_0 ELCG_COPY_1
+perl lpe.pl --chip gb100 --Feature regThreshold --args ELCG_GR read ELCG_COPY_0 read ELCG_COPY_1 read
+
